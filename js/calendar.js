@@ -5,30 +5,31 @@ const firstDay = new Date(year, month, 1);
 const dayWeek = firstDay.getDay();
 const daysInMonth = new Date(year, month+1, 0).getDate()
 
-const calendarDays = document.getElementsByClassName("calendar-day");
 
-switch(month) {
-    case 0: // January
-    case 1: // Feburary
-    case 2: // March
-    case 3: // April
-    case 4: // May
-    case 5: // June
-    case 6: // July
-    case 7: // August
-    case 8: // September
-    case 9: // October
-    case 10: // November
-    case 11: // December
+const monthDisp = document.getElementById("Month")
+switch(month+1) {
+    case 0: monthDisp.innerText = "January" // Jan
+    case 1: monthDisp.innerText = "Feburary" // Feburary
+    case 2: monthDisp.innerText = "March" // March
+    case 3: monthDisp.innerText = "April" // April
+    case 4: monthDisp.innerText = "May" // May
+    case 5: monthDisp.innerText = "June" // June
+    case 6: monthDisp.innerText = "July" // July
+    case 7: monthDisp.innerText = "August" // August
+    case 8: monthDisp.innerText = "September" // September
+    case 9: monthDisp.innerText = "October" // October
+    case 10: monthDisp.innerText = "November" // November
+    case 11: monthDisp.innerText = "December" // December
 }
 
-
+const calendarDays = document.getElementsByClassName("calendar-day");
 for (let i = 0; i < calendarDays.length; i++) {
     const day = calendarDays[i];
-    if (i < dayWeek) { day.innerText = ""
+    if (i < dayWeek) { day.innerHTML = ""
 
     } else if (i-dayWeek < daysInMonth){
-        day.innerText = (i-dayWeek)+1
+        day.innerHTML = ((i-dayWeek)+1) + "<button class='add-event-button'></button>"
+    } else {day.innerHTML = ""}
 
-    } else {day.innerText = ""}
+    
 }
