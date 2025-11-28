@@ -21,6 +21,7 @@ switch(month+1) {
     case 10: monthDisp.innerText = "November" // November
     case 11: monthDisp.innerText = "December" // December
 }
+monthDisp.innerText += " " + year;
 
 const calendarDays = document.getElementsByClassName("calendar-day");
 for (let i = 0; i < calendarDays.length; i++) {
@@ -30,6 +31,20 @@ for (let i = 0; i < calendarDays.length; i++) {
     } else if (i-dayWeek < daysInMonth){
         day.innerHTML = ((i-dayWeek)+1) + "<button class='add-event-button'></button>"
     } else {day.innerHTML = ""}
-
-    
+   
 }
+
+const goBackButton = document.getElementById("goBack");
+const addEventForm = document.getElementById("addEventForm");
+const calendar = document.getElementById("calendar");
+const eventsPage = document.getElementById("eventsPage");
+const addEventContainer = document.getElementById("addEventContainer");
+
+function goBackEvent(e) {
+    console.log("goBack triggered");
+    eventsPage.setAttribute("hidden", "");
+    calendar.removeAttribute("hidden");
+    addEventForm.reset();
+}
+
+goBackButton.addEventListener("click", goBackEvent);

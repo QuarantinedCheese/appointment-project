@@ -73,7 +73,7 @@
             <div id="eventsPage">
                 <h1 id="eventsPageLabel">Add/Edit Event for (Day, Month)</h1>
                 <div id="addEventContainer">
-                    <form>
+                    <form id="addEventForm">
                         <label for="eventName"><b>Name*</b>:</label>
                         <input type="text" id="eventName" name="eventName" minlength=3 maxlength=30 required><br>
                         
@@ -84,6 +84,7 @@
                         <textarea wrap="soft" id="eventDescription" name="eventDescription" minlength=3 maxlength=100></textarea><br>
                         
                         <input type="submit">
+                        <button class="largeBtn" id="goBack" type="button">Cancel</button>
                     </form>
                 </div>
             </div>
