@@ -57,6 +57,7 @@ function addButtonClick(e) {
     let day = e.target.parentElement.innerText
     let eventPageLabel = document.getElementById("eventsPageLabel")
     eventPageLabel.innerText = `Add/Edit Event for (${monthName}, ${day})`
+    eventsPage.setAttribute("day", day);
 
     console.log("triggered addEvent");
     calendar.setAttribute("hidden", "");
@@ -101,7 +102,7 @@ function addEvent() {
         return;
     }
 
-	//let date = eventDateInput.value;
+	let day = eventsPage.getAttribute("day");
 	let title = eventTitleInput.value;
 	let time = eventTimeInput.value;
 	let description = eventDescriptionInput.value;
@@ -115,7 +116,7 @@ function addEvent() {
     const event = {
         id: eventIdCounter++,
         date: [day, month],
-		    time: time,
+		time: time,
         title: title,
         description: description
     };
