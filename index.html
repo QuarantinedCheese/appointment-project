@@ -9,9 +9,24 @@
         <script defer src="js/calendar.js"></script>
     </head>
     <body>
+
+        <div id="notificationBanner" hidden>
+           <span id="bannerMessage"></span>
+        </div>
+
         <div id="content">
-            <h1 id="Month">Calendar</h1>
             <div id="calendar">
+                <h1 id="Month">Calendar</h1>
+                <div class="calendar-weekdays">
+                    <div class="weekday">Sun</div>
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                </div>
+                
                 <div class="calendar-container">
                     <div class="calendar-day">Calendar Day</div>
                     <div class="calendar-day">Calendar Day</div>
@@ -57,6 +72,25 @@
                     <div class="calendar-day">Calendar Day</div>
                     
                     
+                </div>
+            </div>
+            
+            <div id="eventsPage" hidden>
+                <h1 id="eventsPageLabel">Add/Edit Event for (Day, Month)</h1>
+                <div id="addEventContainer">
+                    <form id="addEventForm">
+                        <label for="eventName"><b>Name*</b>:</label>
+                        <input type="text" id="eventName" name="eventName" minlength=3 maxlength=30 required><br>
+                        
+                        <label for="eventTime"><b>Time*</b>:</label>
+                        <input type="time" id="eventTime" name="eventTime" required><br>
+                        
+                        <label for="eventDescription"><b>Description: </b></label>
+                        <textarea wrap="soft" id="eventDescription" name="eventDescription" minlength=3 maxlength=100></textarea><br>
+                        
+                        <input type="submit" id="submitAddEvent">
+                        <button class="largeBtn" id="goBack" type="button">Cancel</button>
+                    </form>
                 </div>
             </div>
         </div>
