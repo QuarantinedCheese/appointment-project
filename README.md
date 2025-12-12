@@ -27,7 +27,21 @@ To install, you need to have the following files in your website:
 
 ## The Team
 
-- Mirza
-- Stanley
-- Ethan
-- Prabu
+- Mirza (yes-2785)
+    - Main Frontend Dev
+    - Project lead
+    - Added majority of CSS styling for the calendar and event addition page.
+    - Managed and maintained the GitHub page, making sure merges are valid and functional.
+- Stanley (stanng66)
+    - Backend/Frontend Dev
+    - Added CSS and HTML for current day indicator (blue dot)
+    - Added CSS and JS for reminder banner
+    - Adjusted CSS and HTML for edit event modal
+    - Setup JS backbone for adding events
+- Ethan (QuarantinedCheese)
+    - Backend Dev
+    - Filled out README
+    - Added JS for calendar setup (finding date, getting month+year, counting days, graying out days not included in current month)
+    - Several other minor additions in collaboration with Mirza
+- Prabu (dheshva2020)
+    - Implemented saving and loading event data
