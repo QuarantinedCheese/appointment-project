@@ -36,6 +36,7 @@ To install, you need to have the following files in your website:
     - Project lead
     - Added majority of CSS styling for the calendar and event addition page.
     - Managed and maintained the GitHub page, making sure merges are valid and functional.
+    - Assisted in planning
 <br>
 
 - Stanley (stanng66)
@@ -44,6 +45,7 @@ To install, you need to have the following files in your website:
     - Added CSS and JS for reminder banner
     - Adjusted CSS and HTML for edit event modal
     - Setup JS backbone for adding events
+    - Assisted in planning
 <br>
 
 - Ethan (QuarantinedCheese)
@@ -51,6 +53,7 @@ To install, you need to have the following files in your website:
     - Filled out README
     - Added JS for calendar setup (finding date, getting month+year, counting days, graying out days not included in current month)
     - Several other minor additions in collaboration with Mirza
+    - Assisted in planning
 <br>
 
 - Prabu (dheshva2020)
