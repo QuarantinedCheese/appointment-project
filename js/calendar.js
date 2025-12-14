@@ -48,12 +48,17 @@ const closeEditModal = document.getElementById("closeEditModalBtn");
 
 const addEventForm = document.getElementById("editEventForm");
 const calendar = document.getElementById("calendar");
-const eventsPage = document.getElementById("editEventModal");
+const editEventModal = document.getElementById("editEventModal");
+
+const eventModal = document.getElementById("eventModal");
+const eventModalName = document.getElementById("modalEventName");
+const eventModalTime = document.getElementById("modalEventTime");
+const eventModalDescription = document.getElementById("modalEventDescription");
 //const addEventContainer = document.getElementById("addEventContainer");
 
 function goBackEvent(e) {
     console.log("goBack triggered");
-    eventsPage.setAttribute("hidden", "");
+    editEventModal.setAttribute("hidden", "");
     //calendar.removeAttribute("hidden");
     addEventForm.reset();
 }
@@ -66,17 +71,34 @@ function addButtonClick(e) {
     let day = e.target.parentElement.getAttribute("day");
     let eventPageLabel = document.getElementById("eventsPageLabel");
     eventPageLabel.innerText = `Add/Edit Event for ${monthName} ${day}`
-    eventsPage.setAttribute("day", day);
+    editEventModal.setAttribute("day", day);
 
     console.log("triggered addEvent");
     //calendar.setAttribute("hidden", "");
-    eventsPage.removeAttribute("hidden");
+    editEventModal.removeAttribute("hidden");
 }
 
 for (let day of calendarDays) {
     let addButton = day.querySelector(".add-event-button");
     if (addButton) {
         addButton.addEventListener("click", addButtonClick);
+    }
+}
+
+// Functionality for going to the edit events module when clicking an existing calendar event
+function eventButtonClick(e) {
+    let id = e.target.getAttribute("id");
+    id = parseInt(id);
+    eventModal.removeAttribute("hidden");
+    
+    if (events[id] != null) {
+        let event = events[id];
+        eventModalName.innerHTML = event.title;
+        eventModalTime.innerHTML = event.time;
+        eventModalDescription.innerHTML = event.description;
+        
+    } else {
+        console.log("This event id does not exist.");
     }
 }
 
@@ -127,7 +149,7 @@ function updateCalendarItems() {
 
         if (calendarDays2.length > 0) {
             let currentDay = calendarDays2[0];
-            currentDay.setAttribute("extraHTML", currentDay.getAttribute("extraHTML") + `<button class='calendar-event'>${event.title}</button>`);
+            currentDay.setAttribute("extraHTML", currentDay.getAttribute("extraHTML") + `<button class='calendar-event' id="${event.id}">${event.title}</button>`);
 
         } else {
             console.log("nothing in calendarDays2 filtered");
@@ -159,7 +181,7 @@ function addEvent() {
         return;
     }
 
-	let day = eventsPage.getAttribute("day");
+	let day = editEventModal.getAttribute("day");
 	let title = eventTitleInput.value;
 	let time = eventTimeInput.value;
 	let description = eventDescriptionInput.value;
@@ -233,7 +255,7 @@ eventTimeInput.addEventListener("input", addTimeUpdate);
 addEventForm.addEventListener("submit", function(e) {
     e.preventDefault();
     addEvent();
-    eventsPage.setAttribute("hidden", "");
+    editEventModal.setAttribute("hidden", "");
     addEventForm.reset();
 })
 
