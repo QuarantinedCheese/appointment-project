@@ -5,8 +5,8 @@ const firstDay = new Date(year, month, 1); //Gets first day of the month
 const dayWeek = firstDay.getDay(); // Gets the day of the week
 const daysInMonth = new Date(year, month+1, 0).getDate() // i'll be honest, idk
 
-let monthName = ''
-const monthDisp = document.getElementById("Month")
+let monthName = '';
+const monthDisp = document.getElementById("Month");
 console.log(month)
 switch(month) {
     case 0: monthName = "January"; break; // Jan
@@ -42,16 +42,19 @@ for (let i = 0; i < calendarDays.length; i++) {
 }
 
 // Functionality for adding/editing events form
-const goBackButton = document.getElementById("goBack");
-const addEventForm = document.getElementById("addEventForm");
+const goBackButton = document.getElementById("cancelEditEventBtn");
+const closeModal = document.getElementById("closeModalBtn");
+const closeEditModal = document.getElementById("closeEditModalBtn");
+
+const addEventForm = document.getElementById("editEventForm");
 const calendar = document.getElementById("calendar");
-const eventsPage = document.getElementById("eventsPage");
-const addEventContainer = document.getElementById("addEventContainer");
+const eventsPage = document.getElementById("editEventModal");
+//const addEventContainer = document.getElementById("addEventContainer");
 
 function goBackEvent(e) {
     console.log("goBack triggered");
     eventsPage.setAttribute("hidden", "");
-    calendar.removeAttribute("hidden");
+    //calendar.removeAttribute("hidden");
     addEventForm.reset();
 }
 
@@ -61,12 +64,12 @@ goBackButton.addEventListener("click", goBackEvent);
 // Functionality for going to the add events page when clicking an empty day
 function addButtonClick(e) {
     let day = e.target.parentElement.getAttribute("day");
-    let eventPageLabel = document.getElementById("eventsPageLabel")
+    let eventPageLabel = document.getElementById("eventsPageLabel");
     eventPageLabel.innerText = `Add/Edit Event for ${monthName} ${day}`
     eventsPage.setAttribute("day", day);
 
     console.log("triggered addEvent");
-    calendar.setAttribute("hidden", "");
+    //calendar.setAttribute("hidden", "");
     eventsPage.removeAttribute("hidden");
 }
 
@@ -84,10 +87,10 @@ loadEvents();
 
 // Store event input fields and reminder list
 //let eventDateInput = document.getElementById("eventDate");
-let eventTitleInput = document.getElementById("eventName");
-let eventTimeInput = document.getElementById("eventTime");
-let eventDescriptionInput = document.getElementById("eventDescription");
-let eventSubmitInput = document.getElementById("submitAddEvent");
+let eventTitleInput = document.getElementById("editEventName");
+let eventTimeInput = document.getElementById("editEventTime");
+let eventDescriptionInput = document.getElementById("editEventDescription");
+let eventSubmitInput = document.getElementById("saveEditEventBtn");
 let reminderList = document.getElementById("reminderList");
 
 // Counter to generate unique event IDs. Accommodate for loaded events to prevent discrepancies in IDs
@@ -231,7 +234,6 @@ addEventForm.addEventListener("submit", function(e) {
     e.preventDefault();
     addEvent();
     eventsPage.setAttribute("hidden", "");
-    calendar.removeAttribute("hidden");
     addEventForm.reset();
 })
 

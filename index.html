@@ -77,8 +77,6 @@
                     <div class="calendar-day">Calendar Day</div>
                 </div>
             </div>
-                <div id="eventsPage" hidden>             
-                <h1 id="eventsPageLabel">Add/Edit Event for (Day, Month)</h1>
                 <div id="addEventContainer">
                     <form id="addEventForm">
                         <label for="eventName"><b>Name*</b>:</label>
@@ -107,16 +105,21 @@
         <div id="editEventModal" class="modal" hidden>
             <div class="modal-content">
                <span class="closeBtn" id="closeEditModalBtn">&times;</span>
+               <h1 id="eventsPageLabel">Add/Edit Event for (Day, Month)</h1>
+               
                <form id="editEventForm">
                   <label for="editEventName"><b>Name*</b>:</label>
                   <input type="text" id="editEventName" name="editEventName" minlength="3" maxlength="30" required>
+                  
                   <label for="editEventTime"><b>Time*</b>:</label>
                   <input type="time" id="editEventTime" name="editEventTime" required>
+                  
                   <label for="editEventDescription"><b>Description:</b></label>
                   <textarea id="editEventDescription" name="editEventDescription" minlength="3" maxlength="100"></textarea>
+                  
                   <div style="margin-top: 15px;">
-                      <input type="submit" class="largeBtn" id="saveEditEventBtn" value="Save Changes">
-                       <button class="largeBtn" id="cancelEditEventBtn" type="button">Cancel</button>
+                        <input type="submit" class="largeBtn" id="saveEditEventBtn" value="Save Changes">
+                        <button class="largeBtn" id="cancelEditEventBtn" type="button">Cancel</button>
                   </div>
                 </form>
             </div>

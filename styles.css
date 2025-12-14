@@ -78,17 +78,19 @@ button:hover, input[type="submit"]:hover {
 }
 
 input:hover, textarea:hover, .largeBtn:hover {
-    border: 2px solid lavender;
+    border: 1px solid lavender;
     border-radius: 16px;
 }
+
 input:active, textarea:active, .largeBtn:active {
-    border: 2px solid lightgrey;
+    border: 1px solid lightgrey;
     border-radius: 16px;
 
 }
+
 input:focus, textarea:focus, .largeBtn:focus {
     outline: none;
-    border: 2px solid cornflowerblue;
+    border: 1px solid cornflowerblue;
     border-radius: 16px;
 }
 
@@ -107,6 +109,7 @@ input[type="text"] {
 input[type="time"] {
     text-align: center;
     font-size: 32px;
+    min-width: max-content;
 }
 
 input, textarea, .largeBtn {
@@ -122,7 +125,7 @@ input, textarea, .largeBtn {
     border-radius: 0.5em;
     padding: 8px;
     
-    transition: border 0.1s ease-in-out, border-radius 0.1s ease-in-out;
+    transition: border 0.1s ease-in-out, border-radius 0.1s ease-in-out, background-color 0.1s ease-in-out;
 }
 
 #addEventContainer {
@@ -237,6 +240,17 @@ input, textarea, .largeBtn {
     overflow-y: auto;
     color: lavender;
     animation: fadeInScale 0.25s ease-out;
+}
+
+#modalEventTime {
+    width: max-content;
+    background-color: rgb(33, 33, 33);
+    padding: 10px;
+    
+    border: 1px solid grey;
+    border-radius: 20px;
+    margin: 0;
+    font-size: 32px;
 }
 
 @keyframes fadeInScale {
