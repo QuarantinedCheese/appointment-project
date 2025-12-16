@@ -1,6 +1,7 @@
 # appointment-project
-**https://yes-2875.github.io/appointment-project**
-CPAN113/FJS Group Project
+**[Website Link](https://yes-2875.github.io/appointment-project)**
+
+**CPAN113/FJS Group Project**
 
 ## Purpose
 The purpose of this project was to allow users to plan out their time for the month, scheduling appointments, tasks, work, etc.
@@ -21,7 +22,7 @@ There are two main features:
     - These events make use of the HTML5 Web Storage API to **store persistent data** in the browser. If the user refreshes or leaves the site, the events remian there.
 
 ### Project Board
-Here is a link 
+Here is a [link](https://github.com/users/yes-2875/projects/1) of the GitHub Project Board used to keep track of development stages and feature development:
 
 ### Demonstration Video
 Click this preview image to watch the video:
