@@ -9,55 +9,114 @@
         <script defer src="js/calendar.js"></script>
     </head>
     <body>
+
+        <div id="notificationBanner" hidden>
+           <span id="bannerMessage"></span>
+        </div>
+
         <div id="content">
-            <h1 id="Month">Calendar</h1>
             <div id="calendar">
-                <div class="calendar-container">
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    <div class="calendar-day">Calendar Day</div>
-                    
-                    
+                <h1 id="Month">Calendar</h1>
+                <div class="calendar-weekdays">
+                    <div class="weekday">Sun</div>
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
                 </div>
+                
+                <div class="calendar-container">
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                </div>
+            </div>
+                <div id="addEventContainer" hidden>
+                    <form id="addEventForm">
+                        <label for="eventName"><b>Name*</b>:</label>
+                        <input type="text" id="eventName" name="eventName" minlength=3 maxlength=30 required><br>
+                        <label for="eventTime"><b>Time*</b>:</label>
+                        <input type="time" id="eventTime" name="eventTime" required><br>
+                        <label for="eventDescription"><b>Description: </b></label>
+                        <textarea wrap="soft" id="eventDescription" name="eventDescription" minlength=3 maxlength=100></textarea><br>
+                        <input type="submit" id="submitAddEvent">
+                        <button class="largeBtn" id="goBack" type="button">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="eventModal" class="modal" hidden>
+             <div class="modal-content">
+                <span class="closeBtn" id="closeModalBtn">&times;</span>
+                <h2 id="modalEventName">Event Name</h2>
+                <p id="modalEventTime">Event Time</p>
+                <p id="modalEventDescription">Event Description</p>
+                <button class="largeBtn" id="editEventBtn" type="button">Edit Event</button>
+                <button class="largeBtn" id="deleteEventBtn" type="button">Delete Event</button>
+            </div>
+        </div>
+
+        <div id="editEventModal" class="modal" hidden>
+            <div class="modal-content">
+               <span class="closeBtn" id="closeEditModalBtn">&times;</span>
+               <h1 id="eventsPageLabel">Add/Edit Event for (Day, Month)</h1>
+               
+               <form id="editEventForm">
+                  <label for="editEventName"><b>Name*</b>:</label>
+                  <input type="text" id="editEventName" name="editEventName" minlength="3" maxlength="30" required>
+                  
+                  <label for="editEventTime"><b>Time*</b>:</label>
+                  <input type="time" id="editEventTime" name="editEventTime" required>
+                  
+                  <label for="editEventDescription"><b>Description:</b></label>
+                  <textarea id="editEventDescription" name="editEventDescription" minlength="3" maxlength="100"></textarea>
+                  
+                  <div style="margin-top: 15px;">
+                        <input type="submit" class="largeBtn" id="saveEditEventBtn" value="Save Changes">
+                        <button class="largeBtn" id="cancelEditEventBtn" type="button">Cancel</button>
+                  </div>
+                </form>
             </div>
         </div>
     </body>
